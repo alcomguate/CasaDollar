@@ -17,7 +17,7 @@ namespace UdeoPrograXFinal.Service
             _unitOfWork = unitOfWork;
         }
 
-        public Task<IEnumerable<Cliente>> GetAllCliente()
+        public async Task<IEnumerable<Cliente>> GetAllCliente()
         {
             return await _unitOfWork.ClienteRepository.GetAllClientes();
         }
