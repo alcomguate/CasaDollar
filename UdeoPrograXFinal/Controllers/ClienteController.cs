@@ -9,6 +9,8 @@ using UdeoPrograXFinal.Service;
 
 namespace UdeoPrograXFinal.Controllers
 {
+
+    [AllowAnonymous]
     public class ClienteController : ApiController
     {
 
@@ -20,6 +22,9 @@ namespace UdeoPrograXFinal.Controllers
             _clienteService = clienteService;
         }
 
+        [HttpGet]
+        [AllowAnonymous]
+        [Route("api/cliente/Findall")]
         public async Task<IHttpActionResult> GetAllClientes()
         {
             var resultData = await _clienteService.GetAllCliente();

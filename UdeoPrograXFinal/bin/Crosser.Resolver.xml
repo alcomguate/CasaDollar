@@ -1,0 +1,433 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Crosser.Resolver</name>
+    </assembly>
+    <members>
+        <member name="T:Crosser.Resolve.Many`1">
+            <summary>
+            Handles mapping between a interface and concrete type(s)
+            
+            This is grouped transient objects...
+            </summary>
+            <typeparam name="TInterface">Interface to map to</typeparam>
+        </member>
+        <member name="P:Crosser.Resolve.Many`1.AllowMultipleOfSameType">
+            <summary>
+            If false the resolved types mapped to the TInterface have to be unique. Default is true
+            </summary>
+        </member>
+        <member name="F:Crosser.Resolve.Many`1.dependencies">
+            <summary>
+            The Func that will return a new instance of the interface
+            </summary>
+        </member>
+        <member name="F:Crosser.Resolve.Many`1.availableDependencies">
+            <summary>
+            To avoid checking for Enabled flags
+            </summary>
+        </member>
+        <member name="F:Crosser.Resolve.Many`1.lookUp">
+            <summary>
+            A lookup dictionary for named instances
+            </summary>
+        </member>
+        <member name="M:Crosser.Resolve.Many`1.#cctor">
+            <summary>
+            Static Ctor, will make sure that TInterface is a Interface
+            </summary>
+        </member>
+        <member name="M:Crosser.Resolve.Many`1.Reset">
+            <summary>
+            This will clear the mapping.
+            </summary>
+        </member>
+        <member name="M:Crosser.Resolve.Many`1.Add(System.Linq.Expressions.Expression{System.Func{`0}},System.Boolean,System.Boolean,System.String,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Add a new transient mapping
+            </summary>
+            <param name="creator">The Func that creates your instance in the mapping</param>
+            <param name="rewritable">If true the mapping will be overwritten if a new mapping with the same signature is added. If false there can be multiple mappings with the same signature</param>
+            <param name="enabled">If false the mapping is disabled and the instance will not be created</param>
+            <param name="namedInstance">Will allow to get a transient instance by a custom name</param>
+            <param name="properties">Lets you set custom properties as metadata for a mapping signature</param>
+        </member>
+        <member name="M:Crosser.Resolve.Many`1.Remove``1">
+            <summary>
+            Removes all mappings to the Type of TClass where TClass implements TInterface
+            </summary>
+            <typeparam name="TClass">The concrete type to remove from the mapping</typeparam>
+        </member>
+        <member name="M:Crosser.Resolve.Many`1.GetAll">
+            <summary>
+            Will return all enabled mapping for this interface
+            </summary>
+            <returns>All mapped transient instances to the TInterface</returns>
+        </member>
+        <member name="M:Crosser.Resolve.Many`1.GetNamedInstance(System.String)">
+            <summary>
+            Returns a transient instance of type TInterface (if found)
+            </summary>
+            <param name="name">The named mapping</param>
+            <returns>A specific named transient instance mapped to TInterface</returns>
+        </member>
+        <member name="M:Crosser.Resolve.Many`1.Properties``1">
+            <summary>
+            Returns properties for the first type of TClass where TClass implements TInterface
+            </summary>
+            <typeparam name="TClass">The concrete type to get properties for</typeparam>
+            <returns>The properties mapped to a specific instance type</returns>
+        </member>
+        <member name="M:Crosser.Resolve.Many`1.Properties(System.String)">
+            <summary>
+            Returns properties for a named instance
+            </summary>
+            <param name="namedInstance">The named mapping</param>
+            <returns>The properties mapped to a specific named instance</returns>
+        </member>
+        <member name="M:Crosser.Resolve.Many`1.EnableAll">
+            <summary>
+            Enables all mapped dependencies
+            </summary>
+        </member>
+        <member name="M:Crosser.Resolve.Many`1.DisableAll">
+            <summary>
+            Disables all mapped dependencies
+            </summary>
+        </member>
+        <member name="M:Crosser.Resolve.Many`1.EnableAllOf``1">
+            <summary>
+            Enables all types of a specific type TClass where TClass implements TInterface
+            </summary>
+            <typeparam name="TClass">The type to enable all mappings for</typeparam>
+        </member>
+        <member name="M:Crosser.Resolve.Many`1.DisableAllOf``1">
+            <summary>
+            Disables all types of a specific type TClass where TClass implements TInterface
+            </summary>
+            <typeparam name="TClass">The type to disable all mappings for</typeparam>
+        </member>
+        <member name="T:Crosser.Resolve.One`1">
+            <summary>
+            Handles mapping between a interface and concrete types
+            
+            This is transient objects...
+            </summary>
+            <typeparam name="TInterface">Interface to map to</typeparam>
+        </member>
+        <member name="M:Crosser.Resolve.One`1.#cctor">
+            <summary>
+            Static Ctor, checks that TInterface is a Interface
+            </summary>
+        </member>
+        <member name="M:Crosser.Resolve.One`1.Reset">
+            <summary>
+            This will clear the mapping.
+            </summary>
+        </member>
+        <member name="M:Crosser.Resolve.One`1.As(System.Func{`0},System.Boolean,System.Boolean,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Maps the interface to a concrete type
+            </summary>
+            <param name="creator">The func that creates the concrete type</param>
+            <param name="rewritable">Pass in true to be able to change the mapping later</param>      
+            <param name="enabled">If false the mapping is disabled and the instance will not be created</param>        
+            <param name="properties">Lets you set custom properties as metadata for a mapping signature</param>
+        </member>
+        <member name="M:Crosser.Resolve.One`1.Get">
+            <summary>
+            Returns a transient object for TInterface from the func passed in to the method <see cref="M:Crosser.Resolve.One`1.As(System.Func{`0},System.Boolean,System.Boolean,System.Collections.Generic.IDictionary{System.String,System.Object})"/>
+            </summary>
+            <returns>Returns the concrete type of TInterface</returns>        
+        </member>
+        <member name="P:Crosser.Resolve.One`1.Properties">
+            <summary>
+            Returns the mapped properties (metadata) for this <see cref="T:Crosser.Resolve.Model.DependencyObject`1"/>
+            </summary>
+        </member>
+        <member name="M:Crosser.Resolve.One`1.Enable">
+            <summary>
+            Enables the transient object
+            </summary>
+        </member>
+        <member name="M:Crosser.Resolve.One`1.Disable">
+            <summary>
+            Disables the transient object
+            </summary>
+        </member>
+        <member name="T:Crosser.Resolve.ResolverConfig">
+            <summary>
+            Configuration for the resolver
+            </summary>
+        </member>
+        <member name="P:Crosser.Resolve.ResolverConfig.ThrowErrorOnDeniedMapping">
+            <summary>
+            If true the resolver will throw exceptions when a mapping is denied.
+            Default is false.
+            </summary>
+        </member>
+        <member name="T:Crosser.Resolve.Singleton`1">
+            <summary>
+            Handles mapping for a interface and a concrete type
+            
+            This is singleton objects...
+            </summary>
+            <typeparam name="TInterface">Interface to map to</typeparam>
+        </member>
+        <member name="F:Crosser.Resolve.Singleton`1.dependencyObject">
+            <summary>
+            The singleton dependency instance
+            </summary>
+        </member>
+        <member name="M:Crosser.Resolve.Singleton`1.#cctor">
+            <summary>
+            Static Ctor, checks that TInterface is an Interface
+            </summary>
+        </member>
+        <member name="M:Crosser.Resolve.Singleton`1.Reset">
+            <summary>
+            This will clear the mapping for TInterface.
+            </summary>
+        </member>
+        <member name="M:Crosser.Resolve.Singleton`1.As(System.Linq.Expressions.Expression{System.Func{`0}},System.Boolean,System.Boolean,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Maps the interface to a concrete singleton type
+            </summary>
+            <param name="creator">The func that creates the concrete type</param>
+            <param name="rewritable">Pass in true to be able to change the mapping later</param>
+            <param name="enabled">If false the mapping is disabled and the instance will not be created</param>        
+            <param name="properties">Lets you set custom properties as metadata for a mapping signature</param>
+        </member>
+        <member name="P:Crosser.Resolve.Singleton`1.Properties">
+            <summary>
+            Returns the mapped properties (metadata) for this <see cref="T:Crosser.Resolve.Model.DependencyObject`1"/> object
+            </summary>
+        </member>
+        <member name="M:Crosser.Resolve.Singleton`1.Get">
+            <summary>
+            Returns the TInterface from the func passed in to the method <see cref="M:Crosser.Resolve.Singleton`1.As(System.Linq.Expressions.Expression{System.Func{`0}},System.Boolean,System.Boolean,System.Collections.Generic.IDictionary{System.String,System.Object})"/>
+            </summary>
+            <exception cref="T:System.Exception">Throws if there is no mapping available for T</exception>
+            <returns>Returns the concrete singleton type of T</returns>        
+        </member>
+        <member name="M:Crosser.Resolve.Singleton`1.Enable">
+            <summary>
+            Enables the singleton
+            </summary>
+        </member>
+        <member name="M:Crosser.Resolve.Singleton`1.Disable">
+            <summary>
+            Disabled the singleton
+            </summary>
+        </member>
+        <member name="T:Crosser.Resolve.SingletonCollection`1">
+            <summary>
+            Enables mapping of many singletons to a interface     
+            </summary>
+            <typeparam name="TInterface">Interface to map to</typeparam>
+        </member>
+        <member name="P:Crosser.Resolve.SingletonCollection`1.AllowMultipleOfSameType">
+            <summary>
+            If false the resolved types mapped to the TInterface have to be unique. Default is true
+            </summary>
+        </member>
+        <member name="F:Crosser.Resolve.SingletonCollection`1.dependencies">
+            <summary>
+            All mapped singeltons
+            </summary>
+        </member>
+        <member name="F:Crosser.Resolve.SingletonCollection`1.availableDependencies">
+            <summary>
+            To avoid checking for Enabled flags
+            </summary>
+        </member>
+        <member name="F:Crosser.Resolve.SingletonCollection`1.lookUp">
+            <summary>
+            A lookup dictionary for named instances
+            </summary>
+        </member>
+        <member name="M:Crosser.Resolve.SingletonCollection`1.#cctor">
+            <summary>
+            Static Ctor, checks that TInterface is an Interface
+            </summary>
+        </member>
+        <member name="M:Crosser.Resolve.SingletonCollection`1.Reset">
+            <summary>
+            This will clear the mapping.
+            </summary>
+        </member>
+        <member name="M:Crosser.Resolve.SingletonCollection`1.Add(System.Linq.Expressions.Expression{System.Func{`0}},System.Boolean,System.Boolean,System.String,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Add a new singleton mapping
+            </summary>
+            <param name="creator">The Func that creates your instance in the mapping</param>
+            <param name="rewritable">If true the mapping will be overwritten if a new mapping with the same signature is added. If false there can be multiple mappings with the same signature</param>
+            <param name="enabled">If false the mapping is disabled and the instance will not be created</param>
+            <param name="namedInstance">Will allow to get a singleton instance by a custom name</param>
+            <param name="properties">Lets you set custom properties as metadata for a mapping signature</param>
+        </member>
+        <member name="M:Crosser.Resolve.SingletonCollection`1.Remove``1">
+            <summary>
+            Removes all mappings to the Type of TClass where TClass implements TInterface
+            </summary>
+            <typeparam name="TClass">The type to remove all mappings for</typeparam>
+        </member>
+        <member name="M:Crosser.Resolve.SingletonCollection`1.GetAll">
+            <summary>
+            Will return all enabled mapping for this interface
+            </summary>
+            <returns>All singleton mappings to TInterface</returns>
+        </member>
+        <member name="M:Crosser.Resolve.SingletonCollection`1.GetNamedInstance(System.String)">
+            <summary>
+            Returns a singleton instance of type TInterface (if found)
+            </summary>
+            <param name="name">The named mapping</param>
+            <returns>The singleton instance matching the named mapping</returns>
+        </member>
+        <member name="M:Crosser.Resolve.SingletonCollection`1.Properties``1">
+            <summary>
+            Returns properties for the first type of TClass where TClass implements TInterface
+            </summary>
+            <typeparam name="TClass">The type to find properties for</typeparam>
+            <returns>The properties mapped to a specific type</returns>
+        </member>
+        <member name="M:Crosser.Resolve.SingletonCollection`1.Properties(System.String)">
+            <summary>
+            Returns properties for a named instance
+            </summary>
+            <param name="namedInstance">The named mapping</param>
+            <returns>The properties mapped to a specific named instance</returns>
+        </member>
+        <member name="M:Crosser.Resolve.SingletonCollection`1.EnableAll">
+            <summary>
+            Enables all mapped dependencies
+            </summary>
+        </member>
+        <member name="M:Crosser.Resolve.SingletonCollection`1.DisableAll">
+            <summary>
+            Disables all mapped dependencies
+            </summary>
+        </member>
+        <member name="M:Crosser.Resolve.SingletonCollection`1.EnableAllOf``1">
+            <summary>
+            Enables all types of a specific type TClass where TClass implements TInterface
+            </summary>
+            <typeparam name="TClass">The type to enable all mappings for</typeparam>
+        </member>
+        <member name="M:Crosser.Resolve.SingletonCollection`1.DisableAllOf``1">
+            <summary>
+            Disables all types of a specific type TClass where TClass implements TInterface
+            </summary>
+            <typeparam name="TClass">The type to disable all mappings for</typeparam>
+        </member>
+        <member name="T:Crosser.Resolve.Model.DependencyObject`1">
+            <summary>
+            The generic class for mapping One/Many instances
+            </summary>
+            <typeparam name="TInterface"></typeparam>
+        </member>
+        <member name="P:Crosser.Resolve.Model.DependencyObject`1.Rewritable">
+            <summary>
+            Can the depencency be overwritten with another depencency?
+            
+            By default false
+            </summary>
+        </member>
+        <member name="P:Crosser.Resolve.Model.DependencyObject`1.Enabled">
+            <summary>
+            If disabled you will not be able to get an instance of the dependency
+            </summary>
+        </member>
+        <member name="P:Crosser.Resolve.Model.DependencyObject`1.Creator">
+            <summary>
+            The func that is resposible for creating the dependency object
+            </summary>
+        </member>
+        <member name="P:Crosser.Resolve.Model.DependencyObject`1.InstanceType">
+            <summary>
+            The concrete type that the depencency object represents 
+            </summary>
+        </member>
+        <member name="P:Crosser.Resolve.Model.DependencyObject`1.Properties">
+            <summary>
+            Information about the dependency object. Metadata or what ever you like
+            </summary>
+        </member>
+        <member name="M:Crosser.Resolve.Model.DependencyObject`1.#ctor">
+            <summary>
+            Ctor
+            </summary>
+        </member>
+        <member name="M:Crosser.Resolve.Model.DependencyObject`1.#ctor(System.Linq.Expressions.Expression{System.Func{`0}},System.Boolean,System.Boolean,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Ctor
+            </summary>
+            <param name="creator">The expression that will generate the type of TInterface</param>
+            <param name="rewritable">True if this expression can be overwritten with a new expression, default is false</param>
+            <param name="enabled">If false you cant get an instance of the dependency, default true</param>
+            <param name="properties">key/value storage for properties attached to this dependency, default null</param>
+        </member>
+        <member name="M:Crosser.Resolve.Model.DependencyObject`1.Reset">
+            <summary>
+            Will reset the dependency. 
+            The creator will be null
+            Rewritable will be false
+            Enabled will be true
+            Properties will be cleared
+            </summary>
+        </member>
+        <member name="M:Crosser.Resolve.Model.DependencyObject`1.Get">
+            <summary>
+            If <see cref="P:Crosser.Resolve.Model.DependencyObject`1.Enabled"/> is true a transient object will be returned.
+            </summary>
+            <returns>A instance generated by the creator Func that was passed into the Ctor</returns>
+        </member>
+        <member name="T:Crosser.Resolve.Model.SingletonDependencyObject`1">
+            <summary>
+            The generic class for mapping Singleton instances
+            </summary>
+            <typeparam name="TInterface"></typeparam>
+        </member>
+        <member name="M:Crosser.Resolve.Model.SingletonDependencyObject`1.#ctor">
+            <summary>
+            Ctor
+            </summary>
+        </member>
+        <member name="M:Crosser.Resolve.Model.SingletonDependencyObject`1.Reset">
+            <summary>
+            See <see cref="M:Crosser.Resolve.Model.DependencyObject`1.Reset"/> 
+            </summary>
+        </member>
+        <member name="M:Crosser.Resolve.Model.SingletonDependencyObject`1.Get">
+            <summary>
+            If <see cref="P:Crosser.Resolve.Model.DependencyObject`1.Enabled"/> is true the singelton will be returned.
+            </summary>
+            <returns>The mapped singleton</returns>
+        </member>
+        <member name="M:Crosser.Resolve.Model.SingletonDependencyObject`1.Set(System.Linq.Expressions.Expression{System.Func{`0}},System.Boolean,System.Boolean,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Creates a new singleton.
+            If there is a existing instance for the type and rewriting is not allowed the new mapping will not be set
+            Throws exception if mapping is not allowed and <see cref="P:Crosser.Resolve.ResolverConfig.ThrowErrorOnDeniedMapping"/> is true
+            </summary>
+            <param name="creator">The expression that will generate the type of TInterface</param>
+            <param name="rewritable">True if this expression can be overwritten with a new expression, default is false</param>
+            <param name="enabled">If false you cant get an instance of the dependency, default true</param>
+            <param name="properties">key/value storage for properties attached to this dependency, default null</param>
+            <returns>true if the mapping was ok, otherwise false</returns>        
+        </member>
+        <member name="T:Crosser.Resolve.PlatformHelpers.TypeExtensions">
+            <summary>
+            Extensions for getting type information
+            </summary>
+        </member>
+        <member name="M:Crosser.Resolve.PlatformHelpers.TypeExtensions.IsInterface``1">
+            <summary>
+            returns true if T is an interface, otherwise false
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns>true if the type is an interface</returns>
+        </member>
+    </members>
+</doc>
