@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
-using UdeoPrograXFinal.Models;
+using UdeoPrograXFinal.Entities;
 using UdeoPrograXFinal.UnitOfWork;
 
 namespace UdeoPrograXFinal.Service
@@ -20,6 +20,11 @@ namespace UdeoPrograXFinal.Service
         public async Task<IEnumerable<Cliente>> GetAllCliente()
         {
             return await _unitOfWork.ClienteRepository.GetAllClientes();
+        }
+
+        public bool Insert(Cliente dt)
+        {
+            return _unitOfWork.ClienteRepository.Insert(dt);
         }
     }
 }

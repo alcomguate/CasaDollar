@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace UdeoPrograXFinal.Models
+namespace UdeoPrograXFinal.Entities
 {
     public class Cliente
     {
@@ -14,6 +14,7 @@ namespace UdeoPrograXFinal.Models
         private string primerApellido;
         private string segundoApellido;
         private DateTime nacimiento;
+        private decimal ingresoMensual;
 
         public int Id { get => id; set => id = value; }
         public string PrimerNombre { get => primerNombre; set => primerNombre = value; }
@@ -21,6 +22,6 @@ namespace UdeoPrograXFinal.Models
         public string PrimerApellido { get => primerApellido; set => primerApellido = value; }
         public string SegundoApellido { get => segundoApellido; set => segundoApellido = value; }
         public DateTime Nacimiento { get => nacimiento; set => nacimiento = value; }
-
+        public decimal IngresoMensual { get => ingresoMensual; set => ingresoMensual = value; }
     }
 }

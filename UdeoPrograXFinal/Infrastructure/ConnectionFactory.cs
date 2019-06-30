@@ -9,7 +9,7 @@ namespace UdeoPrograXFinal.Infrastructure
     public class ConnectionFactory: IConnectionFactory
     {
 
-        private readonly string connectionString = ConfigurationManager.ConnectionStrings["CiudadDollar"].ConnectionString;
+        private readonly string connectionString = ConfigurationManager.ConnectionStrings["CiudadDollarBD"].ConnectionString;
         public IDbConnection GetConnection
         {
             get

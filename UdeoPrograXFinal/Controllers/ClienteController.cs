@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
+using UdeoPrograXFinal.Entities;
 using UdeoPrograXFinal.Service;
 
 namespace UdeoPrograXFinal.Controllers
@@ -32,6 +33,15 @@ namespace UdeoPrograXFinal.Controllers
             {
                 return NotFound();
             }
+            return Ok(resultData);
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [Route("api/cliente")]
+        public IHttpActionResult addCliente(Cliente dt)
+        {
+            var resultData = _clienteService.Insert(dt);
             return Ok(resultData);
         }
 
