@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UdeoPrograXFinal.Models;
 
-namespace UdeoPrograXFinal.Service
+namespace UdeoPrograXFinal.Repository
 {
     public interface IGenericRepository<TEntity> where TEntity: class
     {

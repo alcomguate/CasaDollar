@@ -21,7 +21,6 @@ namespace UdeoPrograXFinal.Repository
 
         public async Task<IEnumerable<Cliente>> GetAllClientes()
         {
-
             var query = "SELECT * FROM REG_Cliente";
             var list = await SqlMapper.QueryAsync<Cliente>(_connectionFactory.GetConnection, query, null, commandType: System.Data.CommandType.Text);
             return list;
