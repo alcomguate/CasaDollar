@@ -22,9 +22,17 @@ namespace UdeoPrograXFinal.Service
             return await _unitOfWork.ClienteRepository.GetAllClientes();
         }
 
+        public async Task<IEnumerable<Cliente>> GetClienteById(int id)
+        {
+            return await _unitOfWork.ClienteRepository.GetClienteById(id);
+        }
+
         public bool Insert(Cliente dt)
         {
             return _unitOfWork.ClienteRepository.Insert(dt);
         }
+
+
+
     }
 }

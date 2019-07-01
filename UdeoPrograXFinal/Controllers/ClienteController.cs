@@ -36,6 +36,19 @@ namespace UdeoPrograXFinal.Controllers
             return Ok(resultData);
         }
 
+        [HttpGet]
+        [AllowAnonymous]
+        [Route("api/cliente/{id}")]
+        public async Task<IHttpActionResult> GetClienteById(int id)
+        {
+            var resultData = await _clienteService.GetClienteById(id);
+            if (resultData == null)
+            {
+                return NotFound();
+            }
+            return Ok(resultData.FirstOrDefault());
+        }
+
         [HttpPost]
         [AllowAnonymous]
         [Route("api/cliente")]

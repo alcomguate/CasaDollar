@@ -11,6 +11,8 @@ namespace UdeoPrograXFinal.Service
     {
         Task<IEnumerable<Cliente>> GetAllCliente();
 
+        Task<IEnumerable<Cliente>> GetClienteById(int id);
+
         bool Insert(Cliente dt);
 
     }

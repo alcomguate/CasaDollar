@@ -41,5 +41,11 @@ namespace UdeoPrograXFinal.Repository
             return (result > 0);
         }
 
+        public async Task<IEnumerable<Cliente>> GetClienteById(int id) {
+            var query = "SELECT TOP 1 * FROM REG_Cliente WHERE Id = @Id";
+            var list = await SqlMapper.QueryAsync<Cliente>(_connectionFactory.GetConnection, query, new { Id = id}, commandType: System.Data.CommandType.Text);
+            return list;
+        }
+
     }
 }

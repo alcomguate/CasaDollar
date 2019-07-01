@@ -9,5 +9,7 @@ namespace UdeoPrograXFinal.Repository
 
         Task<IEnumerable<Cliente>> GetAllClientes();
 
+        Task<IEnumerable<Cliente>> GetClienteById(int id);
+
     }
 }
