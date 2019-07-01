@@ -9,6 +9,7 @@ using Newtonsoft.Json.Serialization;
 using UdeoPrograXFinal.Resolver;
 using Unity;
 using Microsoft.Owin.Security.OAuth;
+using Exceptionless;
 
 namespace UdeoPrograXFinal
 {
@@ -16,6 +17,8 @@ namespace UdeoPrograXFinal
     {
         public static void Register(HttpConfiguration config)
         {
+            ExceptionlessClient.Default.RegisterWebApi(config);
+
             var container = new UnityContainer();
 
             container.RegisterType<IClienteRepository, ClienteRepository>();

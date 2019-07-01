@@ -76,3 +76,8 @@ C:\Users\alcom\source\repos\UdeoPrograXFinal\UdeoPrograXFinalWeb\CasaDollarWeb\C
 C:\Users\alcom\source\repos\UdeoPrograXFinal\UdeoPrograXFinalWeb\CasaDollarWeb\CasaDollarWeb\obj\Debug\CasaDollarWeb.csproj.CopyComplete
 C:\Users\alcom\source\repos\UdeoPrograXFinal\UdeoPrograXFinalWeb\CasaDollarWeb\CasaDollarWeb\obj\Debug\CasaDollarWeb.dll
 C:\Users\alcom\source\repos\UdeoPrograXFinal\UdeoPrograXFinalWeb\CasaDollarWeb\CasaDollarWeb\obj\Debug\CasaDollarWeb.pdb
+C:\Users\alcom\source\repos\UdeoPrograXFinal\UdeoPrograXFinalWeb\CasaDollarWeb\CasaDollarWeb\bin\Exceptionless.dll
+C:\Users\alcom\source\repos\UdeoPrograXFinal\UdeoPrograXFinalWeb\CasaDollarWeb\CasaDollarWeb\bin\Exceptionless.Mvc.dll
+C:\Users\alcom\source\repos\UdeoPrograXFinal\UdeoPrograXFinalWeb\CasaDollarWeb\CasaDollarWeb\bin\Exceptionless.pdb
+C:\Users\alcom\source\repos\UdeoPrograXFinal\UdeoPrograXFinalWeb\CasaDollarWeb\CasaDollarWeb\bin\Exceptionless.xml
+C:\Users\alcom\source\repos\UdeoPrograXFinal\UdeoPrograXFinalWeb\CasaDollarWeb\CasaDollarWeb\bin\Exceptionless.Mvc.xml
