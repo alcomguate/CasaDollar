@@ -28,7 +28,7 @@ namespace UdeoPrograXFinal.Repository
 
         public new bool Insert(Cliente dt) {
 
-            var query = "INSERT INTO REG_Cliente(PrimerNombre, SegundoNombre, PrimerApellido, SegundoApellido, Nacimiento, IngresoMensual) VALUES (@PrimerNombre, @SegundoNombre, @PrimerApellido, @SegundoApellido, @Nacimiento, @IngresoMensual)";
+            var query = "INSERT INTO REG_Cliente(PrimerNombre, SegundoNombre, PrimerApellido, SegundoApellido, Nacimiento, IngresoMensual, PorcentajeAporte) VALUES (@PrimerNombre, @SegundoNombre, @PrimerApellido, @SegundoApellido, @Nacimiento, @IngresoMensual, @PorcentajeAporte)";
             var result = SqlMapper.Execute(_connectionFactory.GetConnection, query, new
             {
                 dt.PrimerNombre,
@@ -36,7 +36,8 @@ namespace UdeoPrograXFinal.Repository
                 dt.PrimerApellido,
                 dt.SegundoApellido,
                 dt.Nacimiento,
-                dt.IngresoMensual
+                dt.IngresoMensual,
+                dt.PorcentajeAporte
             });
             return (result > 0);
         }
