@@ -1,0 +1,25 @@
+﻿@model Dictionary<string, decimal>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Gastos calculados</h2>
+
+<table class="table">
+
+    <tr>
+        <td>Gastos:</td>
+        <td>@Model["Gastos"]</td>
+    </tr>
+
+    <tr>
+        <td>Publicidad:</td>
+        <td>@Model["Publicidad"]</td>
+    </tr>
+
+    <tr>
+        <td>Caja chica:</td>
+        <td>@Model["CajaChica"]</td>
+    </tr>
+
+</table>
