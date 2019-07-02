@@ -15,6 +15,7 @@ namespace UdeoPrograXFinal.Entities
         private string segundoApellido;
         private DateTime nacimiento;
         private decimal ingresoMensual;
+        private decimal porcentajeAporte;
 
         public int Id { get => id; set => id = value; }
         public string PrimerNombre { get => primerNombre; set => primerNombre = value; }
@@ -23,5 +24,6 @@ namespace UdeoPrograXFinal.Entities
         public string SegundoApellido { get => segundoApellido; set => segundoApellido = value; }
         public DateTime Nacimiento { get => nacimiento; set => nacimiento = value; }
         public decimal IngresoMensual { get => ingresoMensual; set => ingresoMensual = value; }
+        public decimal PorcentajeAporte { get => porcentajeAporte; set => porcentajeAporte = value; }
     }
 }

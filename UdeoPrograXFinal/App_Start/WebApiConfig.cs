@@ -25,12 +25,15 @@ namespace UdeoPrograXFinal
             container.RegisterType<IContinenteRepository, ContinenteRepository>();
             container.RegisterType<IPaisRepository, PaisRepository>();
             container.RegisterType<IEstadoRepository, EstadoRepository>();
+            
             container.RegisterType<IConnectionFactory, ConnectionFactory>();
             container.RegisterType<IUnitOfWork, UnitOfWork.UnitOfWork>();
             container.RegisterType<IClienteService, ClienteService>();
             container.RegisterType<IContinenteService, ContinenteService>();
             container.RegisterType<IPaisService, PaisService>();
-            container.RegisterType<IEstadoRepository, EstadoRepository>();
+            container.RegisterType<IEstadoService, EstadoService>();
+            container.RegisterType<ICasaDollarService, CasaDollarService>();
+
             config.DependencyResolver = new UnityResolver(container);
             
             // Web API configuration and services

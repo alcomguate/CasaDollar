@@ -259,6 +259,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\CasaDollarController.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\ContinenteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -286,6 +287,8 @@
     <Compile Include="Repository\IPaisRepository.cs" />
     <Compile Include="Repository\Implementacion\PaisRepository.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
+    <Compile Include="Service\Implementacion\CasaDollarService.cs" />
+    <Compile Include="Service\ICasaDollarService.cs" />
     <Compile Include="Service\Implementacion\EstadoService.cs" />
     <Compile Include="Service\Implementacion\ContinenteService.cs" />
     <Compile Include="Service\IContinenteService.cs" />
